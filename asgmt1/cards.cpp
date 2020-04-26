@@ -203,8 +203,8 @@ void Hand::add_card(Card c){
     total += c.get_rank(); //updates the total
 }
     
-void Hand::get_total(){
-    cout << total; //outputs the total
+double Hand::get_total(){
+    return total; //outputs the total
 }
 
 void Hand::output(){

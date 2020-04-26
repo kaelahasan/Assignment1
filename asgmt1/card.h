@@ -64,7 +64,7 @@ class Hand {
 public:
     Hand();
     void add_card(Card c);
-    void get_total();
+    double get_total();
     void output(); //ouputs entire hand to screen
 
 private:

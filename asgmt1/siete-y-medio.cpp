@@ -31,38 +31,35 @@ int main() {
         cout << "You have $" << player_money;
         cout << ". Enter bet: ";
         cin >> bet;
-        Card c;
-        Card d;
-        player_hand.add_card(c);
-        dealer_hand.add_card(d);
+        Card c; //creating initial player card
+        Card d; //creating initial dealer card
+        player_hand.add_card(c); //adding card to players hand
+        dealer_hand.add_card(d); //adding card to dealer hand
         cout << "Your cards: " << endl;
-        c.output();
-        cout << "Your total is ";
-        player_hand.get_total();
+        c.output(); //outputting the players cards
+        cout << "Your total is " << player_hand.get_total(); //outputting the players total
         cout << ". Do you want another card (y/n)? ";
         string another_card;
         cin >> another_card;
-        while(another_card == "y" || "Y"){
-            Card c1;
-            player_hand.add_card(c1);
+        while(another_card == "y" || "Y"){ //keep drawing cards until the player no longer answers yes
+            Card c1; //creating new card for the player
+            player_hand.add_card(c1); //adding new card to players hand
             cout << "New card: " << endl;
-            c1.output()
+            c1.output(); //outputting the new card
             cout << "Your cards: " << endl;
-            player_hand.output();
-            cout << "Your total is ";
-            player_hand.get_total();
+            player_hand.output(); //outputting all the players cards
+            cout << "Your total is " << player_hand.get_total(); //outputting the players total
             cout << "Do you want another card (y/n)? ";
-            cin >> another_card;
+            cin >> another_card; //updating the while condition
         }
-        else if(another_card == "n" || "N"){
+        if(another_card == "n" || "N"){
             cout << "Dealer's cards:" << endl;
             dealer_hand.output();
-            cout << "The dealer's total is "
-            dealer_hand.get_total();
-            cout << "."
-            while(dealer.hand.get_total() < 5.5){
-                card d1;
-                cout << "New Card: "
+            cout << "The dealer's total is " << dealer_hand.get_total();
+            cout << ".";
+            while(dealer_hand.get_total() < 5.5){
+                Card d1;
+                cout << "New Card: ";
                 d1.output();
                 cout << "Dealer's cards: " << endl;
                 dealer_hand.output();
