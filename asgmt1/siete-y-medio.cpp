@@ -36,19 +36,42 @@ int main() {
         player_hand.add_card(c);
         dealer_hand.add_card(d);
         cout << "Your cards: " << endl;
-        cout << "\t" << c.get_spanish_rank() << " de " << c.get_spanish_suit() << "\t (" << c.get_english_rank() << " of " << c.get_spanish_rank() << ")." << endl;
+        c.output();
         cout << "Your total is ";
         player_hand.get_total();
         cout << ". Do you want another card (y/n)? ";
         string another_card;
         cin >> another_card;
-        if(another_card == "y" || "Y"){
-            
+        while(another_card == "y" || "Y"){
+            Card c1;
+            player_hand.add_card(c1);
+            cout << "New card: " << endl;
+            c1.output()
+            cout << "Your cards: " << endl;
+            player_hand.output();
+            cout << "Your total is ";
+            player_hand.get_total();
+            cout << "Do you want another card (y/n)? ";
+            cin >> another_card;
         }
         else if(another_card == "n" || "N"){
-            
+            cout << "Dealer's cards:" << endl;
+            dealer_hand.output();
+            cout << "The dealer's total is "
+            dealer_hand.get_total();
+            cout << "."
+            while(dealer.hand.get_total() < 5.5){
+                card d1;
+                cout << "New Card: "
+                d1.output();
+                cout << "Dealer's cards: " << endl;
+                dealer_hand.output();
+                cout << "The dealer's total is " << dealer_hand.get_total() << ".";
+            }
         }
-        else{
+        else{ //need to reloop
+            cout << "Your input was not recognized. Please enter either y or n" << endl;
+            //FINISH
             
         }
         
@@ -59,3 +82,4 @@ int main() {
     
     return 0;
 }
+
