@@ -41,7 +41,11 @@ int main() {
         cout << ". Do you want another card (y/n)? ";
         string another_card;
         cin >> another_card;
-        while(another_card == "y" || "Y"){ //keep drawing cards until the player no longer answers yes
+        while(another_card != "y" || "n"){ //checking user inputted y or n
+            cout << "Your input was not recognized. Please enter either y or n" << endl;
+            cin >> another_card;
+        }
+        while(another_card == "y"){ //keep drawing cards until the player no longer answers yes
             Card c1; //creating new card for the player
             player_hand.add_card(c1); //adding new card to players hand
             cout << "New card: " << endl;
@@ -51,27 +55,26 @@ int main() {
             cout << "Your total is " << player_hand.get_total(); //outputting the players total
             cout << "Do you want another card (y/n)? ";
             cin >> another_card; //updating the while condition
-        }
-        if(another_card == "n" || "N"){
-            cout << "Dealer's cards:" << endl;
-            dealer_hand.output();
-            cout << "The dealer's total is " << dealer_hand.get_total();
-            cout << ".";
-            while(dealer_hand.get_total() < 5.5){
-                Card d1;
-                cout << "New Card: ";
-                d1.output();
-                cout << "Dealer's cards: " << endl;
-                dealer_hand.output();
-                cout << "The dealer's total is " << dealer_hand.get_total() << ".";
+            while(another_card != "y" || "n"){ //checking user inputted y or n
+                cout << "Your input was not recognized. Please enter either y or n" << endl;
+                cin >> another_card;
             }
         }
-        else{ //need to reloop
-            cout << "Your input was not recognized. Please enter either y or n" << endl;
-            //FINISH
-            
-        }
+        //after user has decided to stop adding cards, dealers cards as revealed
+        cout << "Dealer's cards:" << endl;
+        dealer_hand.output(); //ouputing dealer's cards
+        cout << "The dealer's total is " << dealer_hand.get_total(); //outputting the dealer's total
+        cout << ".";
         
+        //the dealer keeps picking cards until their total is 5.5 or greater
+        while(dealer_hand.get_total() < 5.5){
+            Card d1; //creating new card for the dealer
+            cout << "New Card: ";
+            d1.output(); //outputting the new card
+            cout << "Dealer's cards: " << endl;
+            dealer_hand.output(); //adding the new card to the dealer's hand
+            cout << "The dealer's total is " << dealer_hand.get_total() << "."; //outputting the dealer's total
+        }
         
         
     }
