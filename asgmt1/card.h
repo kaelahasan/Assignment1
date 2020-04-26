@@ -59,14 +59,15 @@ private:
 
 
 class Hand {
-   public:
-      // A vector of Cards
-      Hand();
 
-      // You decide what functions you'll need...
+public:
+    Hand();
+    void add_card(Card c);
+    void get_total();
 
-   private:
-      // You decide what fields you'll need...
+private:
+    vector<Card> cards;
+    int total;
 };
 
 
