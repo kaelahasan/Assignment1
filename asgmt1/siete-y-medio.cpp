@@ -7,6 +7,15 @@
 #include "card.h"
 using namespace std;
 
+/*
+ TO DO:
+still need to fix random - always gives the same cards
+need to reset the hands/totals after every game
+fix output look as far as spacing, lines, and periods
+ */
+
+
+
 // Global constants (if any)
 ofstream fout; //file output
 
@@ -55,7 +64,7 @@ int main() {
         string another_card;
         cin >> another_card;
         while(another_card != "y" && another_card != "n"){ //checking user inputted y or n
-            cout << "Your input was not recognized. Please enter either y or n" << endl;
+            cout << "Your input was not recognized. Please enter either y or n: " << endl;
             cin >> another_card;
         }
         while(another_card == "y"){ //keep drawing cards until the player no longer answers yes
