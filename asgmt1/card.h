@@ -37,7 +37,12 @@ class Card {
 
       /*
          These are the only functions you'll need to code
-         for this class. See the implementations of the two
+         for this class. See the implementations of the twoelse if(p.hand.get_total() <= 7.5 && d.hand.get_total() >7.5){
+             cout << "You win $" << bet << endl;
+             p.money += bet;
+             d.money -= bet;
+             cout << "You have $" << p.money;
+         }
      functions above to get an idea of how to proceed.
       */
       string get_english_suit() const;
@@ -78,6 +83,7 @@ class Player {
 public:
       // Constructor.
       //    Assigns initial amount of money
+    Player(){}; 
     Player(int& m, Hand& h);
     int get_money();
     void who_won(Player& d, int& bet);

@@ -11,7 +11,6 @@ using namespace std;
 
 // Non member functions declarations (if any)
 
-
 // Non member functions implementations (if any)
 
 
@@ -75,8 +74,17 @@ int main() {
             cout << "The dealer's total is " << dealer_hand.get_total() << "."; //outputting the dealer's total
         }
         
-        p.who_won(dealer, bet); 
+        p.who_won(dealer, bet);
     }
+    
+    if(p.get_money()>0){
+        cout << "You win $" << p.get_money() <<endl;
+        cout << "Congratualations. You beat the casino!" << endl << "Bye!";
+    }
+    else{
+        cout << "You have $0. GAME OVER!" <<endl << "Come back when you have more money." << endl << "Bye!"; 
+    }
+
     
     
     return 0;
