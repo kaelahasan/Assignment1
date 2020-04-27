@@ -18,8 +18,8 @@ ofstream fout; //file output
 int main() {
     fout.open("gamelog.txt"); //opening output file
     int player_money = 100; //player starts with $100
-    int dealer_money = 900; //dealer starts w/ $100
-    //game will end when the player has $100 or when the dealer has lost more than $900 dollars meaning dealer_money<0
+    int dealer_money = 900; //dealer starts w/ $900
+    //game will end when the player has run out of money (has $0) or when the dealer has lost more than $900 dollars meaning dealer_money<0
     int bet = 0;
     int game_number = 1;
     Hand player_hand;
@@ -33,6 +33,10 @@ int main() {
         cout << "You have $" << player_money;
         cout << ". Enter bet: ";
         cin >> bet;
+        while(bet>player_money){
+            cout << "You do not have enough money to make this bet. Please enter an appproate bet: ";
+            cin >> bet;
+        }
         
         //file output part
         fout << endl << "-----------------------------------------------" << endl << endl;

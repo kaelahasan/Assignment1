@@ -71,7 +71,7 @@ public:
     void add_card(Card c);
     double get_total();
     void output(); //ouputs entire hand to screen
-    void file_output(); 
+    void file_output(); //outputs entire hand to file
 
 private:
     vector<Card> cards;
