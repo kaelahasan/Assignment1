@@ -183,7 +183,7 @@ bool Card::operator < (Card card2) const {
    return rank < card2.rank;
 }
 
-void Card::output(){
+void Card::card_output(){
     cout << "\t" << get_spanish_rank() << " de " << get_spanish_suit() << "\t (" << get_english_rank() << " of " << get_spanish_rank() << ")." << endl;
 }
 
@@ -207,7 +207,7 @@ double Hand::get_total(){
     return total; //outputs the total
 }
 
-void Hand::output(){
+void Hand::hand_output(){
     for(int i = 0; i< cards.size(); i++){
         cout << "\t" << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << "\t (" << cards[i].get_english_rank() << " of " << cards[i].get_spanish_rank() << ")." << endl;
     }

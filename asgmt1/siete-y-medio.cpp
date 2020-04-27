@@ -49,7 +49,7 @@ int main() {
         dealer_hand.add_card(d); //adding card to dealer hand
         cout << "Your cards: " << endl;
         fout << "Your cards: " << endl;
-        c.output(); //outputting the players cards
+        c.card_output(); //outputting the players cards
         cout << "Your total is " << player_hand.get_total(); //outputting the players total
         cout << ". Do you want another card (y/n)? ";
         string another_card;
@@ -62,9 +62,9 @@ int main() {
             Card c1; //creating new card for the player
             player_hand.add_card(c1); //adding new card to players hand
             cout << "New card: " << endl;
-            c1.output(); //outputting the new card
+            c1.card_output(); //outputting the new card
             cout << "Your cards: " << endl;
-            player_hand.output(); //outputting all the players cards
+            player_hand.hand_output(); //outputting all the players cards
             cout << "Your total is " << player_hand.get_total(); //outputting the players total
             cout << "Do you want another card (y/n)? ";
             cin >> another_card; //updating the while condition
@@ -75,7 +75,7 @@ int main() {
         }
         //after user has decided to stop adding cards, dealers cards as revealed
         cout << "Dealer's cards:" << endl;
-        dealer_hand.output(); //ouputing dealer's cards
+        dealer_hand.hand_output(); //ouputing dealer's cards
         cout << "The dealer's total is " << dealer_hand.get_total(); //outputting the dealer's total
         cout << ".";
         
@@ -83,9 +83,9 @@ int main() {
         while(dealer_hand.get_total() < 5.5){
             Card d1; //creating new card for the dealer
             cout << "New Card: ";
-            d1.output(); //outputting the new card
+            d1.card_output(); //outputting the new card
             cout << "Dealer's cards: " << endl;
-            dealer_hand.output(); //adding the new card to the dealer's hand
+            dealer_hand.hand_output(); //adding the new card to the dealer's hand
             cout << "The dealer's total is " << dealer_hand.get_total() << "."; //outputting the dealer's total
         }
         
