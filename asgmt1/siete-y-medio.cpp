@@ -35,7 +35,7 @@ int main() {
         cin >> bet;
         
         //file output part
-        fout << "-----------------------------------------------" << endl << endl;
+        fout << endl << "-----------------------------------------------" << endl << endl;
         fout << "Game number: " << game_number << "\t\t" << "Money left: " << p.get_money()  << endl;
         fout << "Bet: " << bet;
         
@@ -45,7 +45,7 @@ int main() {
         dealer_hand.add_card(d); //adding card to dealer hand
         cout << "Your cards: " << endl;
         fout << "Your cards: " << endl;
-        c.output(fout); //outputting the players cards
+        c.output(); //outputting the players cards
         cout << "Your total is " << player_hand.get_total(); //outputting the players total
         cout << ". Do you want another card (y/n)? ";
         string another_card;
@@ -58,9 +58,9 @@ int main() {
             Card c1; //creating new card for the player
             player_hand.add_card(c1); //adding new card to players hand
             cout << "New card: " << endl;
-            c1.output(fout); //outputting the new card
+            c1.output(); //outputting the new card
             cout << "Your cards: " << endl;
-            player_hand.output(fout); //outputting all the players cards
+            player_hand.output(); //outputting all the players cards
             cout << "Your total is " << player_hand.get_total(); //outputting the players total
             cout << "Do you want another card (y/n)? ";
             cin >> another_card; //updating the while condition
@@ -71,7 +71,7 @@ int main() {
         }
         //after user has decided to stop adding cards, dealers cards as revealed
         cout << "Dealer's cards:" << endl;
-        dealer_hand.output(fout); //ouputing dealer's cards
+        dealer_hand.output(); //ouputing dealer's cards
         cout << "The dealer's total is " << dealer_hand.get_total(); //outputting the dealer's total
         cout << ".";
         
@@ -79,11 +79,20 @@ int main() {
         while(dealer_hand.get_total() < 5.5){
             Card d1; //creating new card for the dealer
             cout << "New Card: ";
-            d1.output(fout); //outputting the new card
+            d1.output(); //outputting the new card
             cout << "Dealer's cards: " << endl;
-            dealer_hand.output(fout); //adding the new card to the dealer's hand
+            dealer_hand.output(); //adding the new card to the dealer's hand
             cout << "The dealer's total is " << dealer_hand.get_total() << "."; //outputting the dealer's total
         }
+        
+        //working on file output
+        fout << "Your cards: " <<endl;
+        player_hand.file_output();
+        fout << "Your total: " << player_hand.get_total() << "." << endl << endl;
+        fout << "Dealer's cards: " << endl;
+        dealer_hand.file_output();
+        fout << "Dealer's cards: " << dealer_hand.get_total() << "." << endl;
+        
         game_number++; //updating game number
         p.who_won(dealer, bet);
     }
@@ -95,7 +104,7 @@ int main() {
     else{
         cout << "You have $0. GAME OVER!" <<endl << "Come back when you have more money." << endl << "Bye!"; 
     }
-
+    
     
     fout.close(); //closeing output file
     return 0;
