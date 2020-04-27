@@ -91,10 +91,10 @@ int main() {
         
         //working on file output
         fout << "Your cards: " <<endl;
-        player_hand.file_output();
+        player_hand.file_output(fout);
         fout << "Your total: " << player_hand.get_total() << "." << endl << endl;
         fout << "Dealer's cards: " << endl;
-        dealer_hand.file_output();
+        dealer_hand.file_output(fout);
         fout << "Dealer's cards: " << dealer_hand.get_total() << "." << endl;
         
         game_number++; //updating game number

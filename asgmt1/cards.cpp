@@ -213,7 +213,7 @@ void Hand::hand_output(){
     }
 }
 
-void Hand::file_output(){
+void Hand::file_output(ofstream& fout){
     for(int i = 0; i< cards.size(); i++){
         fout << "\t" << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << "\t (" << cards[i].get_english_rank() << " of " << cards[i].get_spanish_rank() << ")." << endl;
     }
