@@ -26,14 +26,14 @@ int main() {
     Hand dealer_hand;
     
     Player dealer(dealer_money, dealer_hand);
-    Player p(player_money, player_hand);
+    Player p(player_money, player_hand); //player
     
     while(dealer_money>0 && player_money>0){
          
         cout << "You have $" << player_money;
         cout << ". Enter bet: ";
         cin >> bet;
-        while(bet>player_money){
+        while(bet>player_money){ //ensuring the user does not bet more money than they have
             cout << "You do not have enough money to make this bet. Please enter an appproate bet: ";
             cin >> bet;
         }
@@ -54,7 +54,7 @@ int main() {
         cout << ". Do you want another card (y/n)? ";
         string another_card;
         cin >> another_card;
-        while(another_card != "y" || "n"){ //checking user inputted y or n
+        while(another_card != "y" && another_card != "n"){ //checking user inputted y or n
             cout << "Your input was not recognized. Please enter either y or n" << endl;
             cin >> another_card;
         }
