@@ -216,3 +216,50 @@ void Hand::output(){
    Player class
    ************************************************* */
 // Implemente the member functions of the Player class here.
+Player::Player(int& m, Hand& h){
+    money = m;
+    hand = h;
+}
+    
+int Player::get_money(){
+    return money; //outputs the total
+}
+
+void Player::who_won(Player& d, int& bet){
+    if(hand.get_total() <= 7.5 && d.hand.get_total() <= 7.5){
+        if(hand.get_total()>d.hand.get_total()){
+            cout << "You win $" << bet << endl;
+            money += bet;
+            d.money -= bet;
+            cout << "You have $" << money;
+        }
+        else if(hand.get_total()<d.hand.get_total()){
+            cout << "You lose $" << bet << endl;
+            money -= bet;
+            d.money += bet;
+            cout << "You have $" << money;
+        }
+        else{
+            cout << "It is a tie." << "You have $" << money;
+        }
+    }
+    else if(hand.get_total() > 7.5 && d.hand.get_total() > 7.5){
+        cout << "House advantage. You lose $" << bet << endl;
+        money -= bet;
+        d.money += bet;
+        cout << "You have $" << money;
+        
+    }
+    else if(hand.get_total() <= 7.5 && d.hand.get_total() >7.5){
+        cout << "You win $" << bet << endl;
+        money += bet;
+        d.money -= bet;
+        cout << "You have $" << money;
+    }
+    else if(hand.get_total() > 7.5 && d.hand.get_total() <=7.5){
+        cout << "You lose $" << bet << endl;
+        money -= bet;
+        d.money += bet;
+        cout << "You have $" << money;
+    }
+}

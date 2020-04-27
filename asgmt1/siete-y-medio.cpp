@@ -9,7 +9,6 @@ using namespace std;
 
 // Global constants (if any)
 
-
 // Non member functions declarations (if any)
 
 
@@ -20,12 +19,12 @@ int main() {
     int player_money = 100; //player starts with $100
     int dealer_money = 900; //dealer starts w/ $100
     //game will end when the player has $100 or when the dealer has lost more than $900 dollars meaning dealer_money<0
+    int bet = 0;
     Hand player_hand;
     Hand dealer_hand;
     
-    Player dealer(dealer_money);
-    Player p(player_money);
-    int bet;
+    Player dealer(dealer_money, dealer_hand);
+    Player p(player_money, player_hand);
     
     while(dealer_money>0 && player_money>0){
         cout << "You have $" << player_money;
@@ -76,7 +75,7 @@ int main() {
             cout << "The dealer's total is " << dealer_hand.get_total() << "."; //outputting the dealer's total
         }
         
-        
+        p.who_won(dealer, bet); 
     }
     
     
