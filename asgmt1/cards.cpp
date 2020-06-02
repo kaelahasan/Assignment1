@@ -212,6 +212,12 @@ void Hand::output(){
         cout << "\t" << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << "\t (" << cards[i].get_english_rank() << " of " << cards[i].get_spanish_rank() << ")." << endl;
     }
 }
+    
+void Hand::new_hand(){
+    vector<Card> c;
+    cards = c;
+    total = 0; 
+}
 /* *************************************************
    Player class
    ************************************************* */

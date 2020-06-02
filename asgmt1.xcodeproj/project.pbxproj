@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9B4596924514D0F000430C1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9B4596824514D0F000430C1 /* main.cpp */; };
 		C9B4597124528C07000430C1 /* cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9B4597024528C07000430C1 /* cards.cpp */; };
 		C9B4597324528C36000430C1 /* siete-y-medio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9B4597224528C36000430C1 /* siete-y-medio.cpp */; };
 /* End PBXBuildFile section */
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		C9B4596524514D0F000430C1 /* asgmt1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = asgmt1; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9B4596824514D0F000430C1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C9B4596F24528BE2000430C1 /* card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = card.h; sourceTree = "<group>"; };
 		C9B4597024528C07000430C1 /* cards.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cards.cpp; sourceTree = "<group>"; };
 		C9B4597224528C36000430C1 /* siete-y-medio.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "siete-y-medio.cpp"; sourceTree = "<group>"; };
@@ -62,10 +60,9 @@
 		C9B4596724514D0F000430C1 /* asgmt1 */ = {
 			isa = PBXGroup;
 			children = (
-				C9B4596824514D0F000430C1 /* main.cpp */,
+				C9B4597224528C36000430C1 /* siete-y-medio.cpp */,
 				C9B4596F24528BE2000430C1 /* card.h */,
 				C9B4597024528C07000430C1 /* cards.cpp */,
-				C9B4597224528C36000430C1 /* siete-y-medio.cpp */,
 			);
 			path = asgmt1;
 			sourceTree = "<group>";
@@ -127,7 +124,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9B4596924514D0F000430C1 /* main.cpp in Sources */,
 				C9B4597124528C07000430C1 /* cards.cpp in Sources */,
 				C9B4597324528C36000430C1 /* siete-y-medio.cpp in Sources */,
 			);

@@ -22,10 +22,14 @@ int main() {
     Hand player_hand;
     Hand dealer_hand;
     
-    Player dealer(dealer_money, dealer_hand);
-    Player p(player_money, player_hand);
+    Player dealer;
+    Player p;
     
     while(dealer_money>0 && player_money>0){
+        player_hand.new_hand();
+        dealer_hand.new_hand();
+        dealer = Player(dealer_money, dealer_hand);
+        p = Player(player_money, player_hand);
         cout << "You have $" << player_money;
         cout << ". Enter bet: ";
         cin >> bet;
@@ -39,8 +43,8 @@ int main() {
         cout << ". Do you want another card (y/n)? ";
         string another_card;
         cin >> another_card;
-        while(another_card != "y" || "n"){ //checking user inputted y or n
-            cout << "Your input was not recognized. Please enter either y or n" << endl;
+        while(another_card != "y" && another_card != "n"){ //checking user inputted y or n
+            cout << "Your input was not recognized. Please enter either y or n: ";
             cin >> another_card;
         }
         while(another_card == "y"){ //keep drawing cards until the player no longer answers yes
@@ -53,7 +57,7 @@ int main() {
             cout << "Your total is " << player_hand.get_total(); //outputting the players total
             cout << "Do you want another card (y/n)? ";
             cin >> another_card; //updating the while condition
-            while(another_card != "y" || "n"){ //checking user inputted y or n
+            while(another_card != "y" && another_card != "n"){ //checking user inputted y or n
                 cout << "Your input was not recognized. Please enter either y or n" << endl;
                 cin >> another_card;
             }
