@@ -26,6 +26,7 @@ ofstream fout; //file output
 
 int main() {
     fout.open("gamelog.txt"); //opening output file
+    fout << "tester";
     int player_money = 100; //player starts with $100
     int dealer_money = 900; //dealer starts w/ $900
     //game will end when the player has run out of money (has $0) or when the dealer has lost more than $900 dollars meaning dealer_money<0
