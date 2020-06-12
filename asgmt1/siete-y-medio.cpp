@@ -78,7 +78,7 @@ int main() {
             cout << "Your total is " << player_hand.get_total(); //outputting the players total
             cout << "Do you want another card (y/n)? ";
             cin >> another_card; //updating the while condition
-            while(another_card != "y" || "n"){ //checking user inputted y or n
+            while(another_card != "y" && another_card != "n"){ //checking user inputted y or n
                 cout << "Your input was not recognized. Please enter either y or n" << endl;
                 cin >> another_card;
             }
