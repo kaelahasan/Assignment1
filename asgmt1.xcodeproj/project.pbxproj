@@ -60,7 +60,10 @@
 		C9B4596724514D0F000430C1 /* asgmt1 */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C9B4597224528C36000430C1 /* siete-y-medio.cpp */,
+=======
+>>>>>>> experimental
 				C9B4596F24528BE2000430C1 /* card.h */,
 				C9B4597024528C07000430C1 /* cards.cpp */,
 			);

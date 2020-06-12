@@ -56,7 +56,7 @@ class Card {
       // Assume Ace is always 1.
       // Useful if you want to sort the cards.
       bool operator < (Card card2) const;
-      void output(); //ouputs card to screen
+      void card_output(); //ouputs card to both screen]
 
 private:
       suit_t suit;
@@ -70,8 +70,13 @@ public:
     Hand();
     void add_card(Card c);
     double get_total();
+<<<<<<< HEAD
     void output(); //ouputs entire hand to screen
     void new_hand(); 
+=======
+    void hand_output(); //ouputs entire hand to screen
+    void file_output(ofstream& fout); //outputs entire hand to file
+>>>>>>> experimental
 
 private:
     vector<Card> cards;

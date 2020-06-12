@@ -183,8 +183,8 @@ bool Card::operator < (Card card2) const {
    return rank < card2.rank;
 }
 
-void Card::output(){
-    cout << "\t" << get_spanish_rank() << " de " << get_spanish_suit() << "\t (" << get_english_rank() << " of " << get_spanish_rank() << ")." << endl;
+void Card::card_output(){
+    cout << "\t" << get_spanish_rank() << " de " << get_spanish_suit() << "\t (" << get_english_rank() << " of " << get_english_suit() << ")." << endl;
 }
 
 
@@ -207,9 +207,15 @@ double Hand::get_total(){
     return total; //outputs the total
 }
 
-void Hand::output(){
+void Hand::hand_output(){
     for(int i = 0; i< cards.size(); i++){
-        cout << "\t" << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << "\t (" << cards[i].get_english_rank() << " of " << cards[i].get_spanish_rank() << ")." << endl;
+        cout << "\t" << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << "\t (" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << ")." << endl;
+    }
+}
+
+void Hand::file_output(ofstream& fout){
+    for(int i = 0; i< cards.size(); i++){
+        fout << "\t" << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << "\t (" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << ")." << endl;
     }
 }
     
