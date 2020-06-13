@@ -68,16 +68,13 @@ class Hand {
 
 public:
     Hand();
-    void add_card(Card c);
-    double get_total();
-    void new_hand();
     void hand_output(); //ouputs entire hand to screen
-    void file_output(ofstream& fout); //outputs entire hand to file
 
 
 private:
     vector<Card> cards;
-    int total;
+    double total;
+    friend class Player;
 };
 
 
@@ -88,8 +85,13 @@ public:
       //    Assigns initial amount of money
     Player(){}; 
     Player(int& m, Hand& h);
+    void hand_output(); //ouputs entire hand to screen
+    void file_output(ofstream& fout); //outputs entire hand to file
     int get_money();
+    void add_card(Card c);
     void who_won(Player& d, int& bet);
+    void new_hand();
+    double get_total();
       // You decide what functions you'll need...
 private:
     int money;

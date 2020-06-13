@@ -195,17 +195,10 @@ void Card::card_output(){
 Hand::Hand(){
     vector<Card> empty;
     cards = empty;
-    total = 0;
+    total = 0.0;
 }
 
-void Hand::add_card(Card c){
-    cards.push_back(c); //adds card to the hand
-    total += c.get_rank(); //updates the total
-}
     
-double Hand::get_total(){
-    return total; //outputs the total
-}
 
 void Hand::hand_output(){
     for(int i = 0; i< cards.size(); i++){
@@ -213,17 +206,7 @@ void Hand::hand_output(){
     }
 }
 
-void Hand::file_output(ofstream& fout){
-    for(int i = 0; i< cards.size(); i++){
-        fout << "\t" << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << "\t (" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << ")." << endl;
-    }
-}
     
-void Hand::new_hand(){
-    vector<Card> c;
-    cards = c;
-    total = 0; 
-}
 /* *************************************************
    Player class
    ************************************************* */
@@ -233,45 +216,72 @@ Player::Player(int& m, Hand& h){
     hand = h;
 }
     
+void Player::add_card(Card c){
+        hand.cards.push_back(c); //adds card to the hand
+        hand.total += c.get_rank(); //updates the total
+}
+    
 int Player::get_money(){
     return money; //outputs the total
 }
 
+void Player::new_hand(){
+        vector<Card> c;
+        hand.cards = c;
+        hand.total = 0.0;
+}
+void Player::hand_output(){
+    for(int i = 0; i< hand.cards.size(); i++){
+        cout << "\t" << hand.cards[i].get_spanish_rank() << " de " << hand.cards[i].get_spanish_suit() << "\t (" << hand.cards[i].get_english_rank() << " of " << hand.cards[i].get_english_suit() << ")." << endl;
+    }
+}
+void Player::file_output(ofstream& fout){
+    for(int i = 0; i< hand.cards.size(); i++){
+        fout << "\t" << hand.cards[i].get_spanish_rank() << " de " << hand.cards[i].get_spanish_suit() << "\t (" << hand.cards[i].get_english_rank() << " of " << hand.cards[i].get_english_suit() << ")." << endl;
+    }
+}
+
+double Player::get_total(){
+    return hand.total; //outputs the total
+}
+    
 void Player::who_won(Player& d, int& bet){
-    if(hand.get_total() <= 7.5 && d.hand.get_total() <= 7.5){
-        if(hand.get_total()>d.hand.get_total()){
+    if(hand.total <= 7.5 && d.hand.total <= 7.5){
+        if(hand.total>d.hand.total){
             cout << "You win $" << bet << endl;
             money += bet;
             d.money -= bet;
             cout << "You have $" << money;
         }
-        else if(hand.get_total()<d.hand.get_total()){
+        else if(hand.total<d.hand.total){
             cout << "You lose $" << bet << endl;
             money -= bet;
             d.money += bet;
             cout << "You have $" << money;
         }
-        else{
+        else if(hand.total == d.hand.total){
             cout << "It is a tie." << "You have $" << money;
         }
     }
-    else if(hand.get_total() > 7.5 && d.hand.get_total() > 7.5){
+    else if(hand.total > 7.5 && d.hand.total > 7.5){
         cout << "House advantage. You lose $" << bet << endl;
         money -= bet;
         d.money += bet;
         cout << "You have $" << money;
         
     }
-    else if(hand.get_total() <= 7.5 && d.hand.get_total() >7.5){
+    else if(hand.total <= 7.5 && d.hand.total >7.5){
         cout << "You win $" << bet << endl;
         money += bet;
         d.money -= bet;
         cout << "You have $" << money;
     }
-    else if(hand.get_total() > 7.5 && d.hand.get_total() <=7.5){
+    else if(hand.total > 7.5 && d.hand.total <=7.5){
         cout << "You lose $" << bet << endl;
         money -= bet;
         d.money += bet;
         cout << "You have $" << money;
     }
 }
+    
+    
